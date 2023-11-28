@@ -1,0 +1,22 @@
+udemy todo
+
+supabase
+	new-project : Todo Udemy
+
+nextjs install
+
+	npx create-next-app@12.3.3 todo-app --typescript
+	yarn add next@12.3.3
+	yarn add @heroicons/react	--> yarn add @heroicons/react@v1
+	yarn add @supabase/supabase-js
+	yarn add react-query
+	yarn add zustand
+	yarn add -D tailwindcss postcss autoprefixer
+	yarn add -D prettier prettier-plugin-tailwindcss
+	npx tailwindcss init -p
+
+リポジトリー
+	https://github.com/kfbk/todo-udemy.git
+
+
+質問
