@@ -9,7 +9,7 @@ nextjs install
 	yarn add next@12.3.3
 	yarn add @heroicons/react	--> yarn add @heroicons/react@v1
 	yarn add @supabase/supabase-js
-	yarn add react-query
+	yarn add react-query			状態管理（サーバーステートの管理に必要な機能を提供。useContextと似ている）
 	yarn add zustand
 	yarn add -D tailwindcss postcss autoprefixer
 	yarn add -D prettier prettier-plugin-tailwindcss
@@ -18,5 +18,37 @@ nextjs install
 リポジトリー
 	https://github.com/kfbk/todo-udemy.git
 
+Vercelにデプロイ
+	https://todo-udemy-kfbk.vercel.app/
+
+仮ユーザ登録
+	user1@test.com	password　123456
+	user2@test.com	password　123456
 
 質問
+
+2023/12/18
+お世話になっております。「NextjsとSupabaseによる高性能Web開発」の講座を受けている佐藤と申します。
+「19.task+Notice component」に進んだところで、ローカルで動かしたところ、新しいタスクCreateのところでエラー発生しました。
+ファイル名：TaskForm.tsx
+  const submitHandler = (e:FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (editedTask.id === '') {
+      createTaskMutation.mutate({
+        title: editedTask.title,
+        user_id: supabase.auth.user()?.id,   <--- ここがエラー
+
+これ以上進めません。どうすればよいのですか。
+以前、同じようなエラーが出て、次のように修正してエラーを切り抜けました。
+ファイル名：_app.tsx
+  function MyApp({ Component, pageProps }: AppProps) {
+    const {push, pathname} = useRouter()
+    // ユーザ遷移を自動で行ってくれる
+    const validateSession = async () => {
+      // const user = supabase.auth.user() --> これを次のように修正
+      const user = await supabase.auth.getUser()
+これで良いのでしょうか。
+ご教授の程、よろしくお願いいたします。
+
+
+
